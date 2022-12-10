@@ -23,7 +23,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="128dp"
+                android:layout_marginTop="100dp"
                 android:text="Login"
                 android:textSize="44sp"
                 android:textStyle="bold"
@@ -35,9 +35,9 @@
             <EditText
                 android:id="@+id/input_Email"
                 android:layout_width="0dp"
-                android:layout_height="43dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="96dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/input_background"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
@@ -67,6 +67,7 @@
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword"
+                android:minHeight="48dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingRight="20dp"
@@ -88,6 +89,68 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/input_Password"
                 app:layout_constraintTop_toBottomOf="@+id/input_Password" />
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/input_background"
+                android:textSize="20sp"
+                android:text="Login"
+                app:layout_constraintEnd_toEndOf="@+id/input_Password"
+                app:layout_constraintStart_toStartOf="@+id/input_Password"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/create_new_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Create new account ?"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/login_button"
+                app:layout_constraintStart_toStartOf="@+id/login_button"
+                app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+            <TextView
+                android:id="@+id/OR_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="OR"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_new_account" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="16dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/OR_TextView"
+                app:layout_constraintEnd_toEndOf="@+id/login_button"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/OR_TextView"
+                app:layout_constraintTop_toTopOf="@+id/OR_TextView" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/OR_TextView"
+                app:layout_constraintEnd_toStartOf="@+id/OR_TextView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/login_button"
+                app:layout_constraintTop_toTopOf="@+id/OR_TextView" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
