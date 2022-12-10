@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -25,11 +26,14 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     TextView alreadyHaveAccount;
-    EditText inputEmailRegister, inputPasswordRegister, inputConfirmPasswordRegister;
+    EditText inputEmailRegister, inputPasswordRegister, inputConfirmPasswordRegister, inputName, inputNumber;
     Button registerButton;
     ProgressDialog progressDialog;
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String usernamePattern = "^[\\p{L} .'-]+$"; ;
+    String phoneNumberPattern = "^[0-9]$";
+    private static final String TAG = "RegisterActivity";
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -42,6 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         alreadyHaveAccount=(TextView) findViewById(R.id.already_have_account);
+        inputName=(EditText)findViewById(R.id.name_TextView);
+        inputNumber=(EditText)findViewById(R.id.number_TextView);
         inputEmailRegister=(EditText)findViewById(R.id.input_Email_register);
         inputPasswordRegister=(EditText)findViewById(R.id.input_password_register);
         inputConfirmPasswordRegister=(EditText)findViewById(R.id.confirm_Password_register);
@@ -70,11 +76,23 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void performAuthentication() {
+        String name=inputName.getText().toString();
+        String number=inputNumber.getText().toString();
         String email=inputEmailRegister.getText().toString();
         String password=inputPasswordRegister.getText().toString();
         String confirmPassword=inputConfirmPasswordRegister.getText().toString();
 
-        if(!email.matches(emailPattern))
+        if(!name.matches(usernamePattern))
+        {
+            inputName.setError("Please enter a valid name");
+            inputName.requestFocus();
+        }
+        else if(!number.matches(phoneNumberPattern)||number.length()<10||number.length()>13)
+        {
+            inputNumber.setError("Please enter a valid phone number");
+            inputNumber.requestFocus();
+        }
+        else if(!email.matches(emailPattern))
         {
             inputEmailRegister.setError("Enter a valid email");
             inputEmailRegister.requestFocus();
@@ -101,16 +119,24 @@ public class RegisterActivity extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         progressDialog.dismiss();
+                        sendToNextActivity();
                         Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
                         progressDialog.dismiss();
                         Toast.makeText(RegisterActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onComplete: "+task.getException());
                     }
                 }
             });
         }
 
+    }
+
+    private void sendToNextActivity() {
+        Intent intent=new Intent(RegisterActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
