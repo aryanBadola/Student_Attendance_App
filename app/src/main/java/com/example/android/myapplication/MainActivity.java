@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendToNextActivity() {
-        Intent intent=new Intent(MainActivity.this, HomeActivity.class);
+        Intent intent=new Intent(MainActivity.this, ClassActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
