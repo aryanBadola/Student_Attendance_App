@@ -72,7 +72,7 @@ tools:context=".ClassActivity">
     app:fabAnimationMode="scale" />
 
 <com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/fab_main"
+    android:id="@+id/floating_action_button_class_names"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:layout_anchor="@id/bottomAppBar"
