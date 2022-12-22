@@ -13,6 +13,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
+import com.example.android.myapplication.Adapter.ClassNamesAdapter;
+import com.example.android.myapplication.Model.ClassNamesModel;
+
+import java.util.ArrayList;
 import java.util.zip.Inflater;
 
 public class ClassActivity extends AppCompatActivity {
@@ -20,6 +24,7 @@ public class ClassActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     RecyclerView recyclerView;
+    ArrayList<ClassNamesModel> arrClassNames = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +36,14 @@ public class ClassActivity extends AppCompatActivity {
 
 
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayout.VERTICAL));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayout.VERTICAL));
+
+        arrClassNames.add(new ClassNamesModel(R.drawable.computer_science,"Engineering Mathematics","5th","CSE"));
+        arrClassNames.add(new ClassNamesModel(R.drawable.computer_science,"Engineering Mathematics","5th","CSE"));
+        arrClassNames.add(new ClassNamesModel(R.drawable.computer_science,"Engineering Mathematics","5th","CSE"));
+
+        ClassNamesAdapter adapter=new ClassNamesAdapter(this,arrClassNames);
+        recyclerView.setAdapter(adapter);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override

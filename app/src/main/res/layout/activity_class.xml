@@ -1,46 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+
+
+
+
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:background="@color/white"
+tools:context=".ClassActivity">
+
+
+
+<androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClassActivity">
+    android:paddingBottom="100dp"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:clipToPadding="false">
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:clipToPadding="false">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/classes_sample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/classes_assigned"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/black"
+            android:layout_marginRight="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/class_names_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp" />
 
-            <TextView
-                android:id="@+id/classes_assign_TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/classes_assigned"
-                android:textColor="@color/black"
-                android:layout_margin="10dp"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/class_names_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:menu="@menu/user_profile"
+    app:title="@string/toolbar_heading"
+    android:background="@color/white" />
 
-        </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:menu="@menu/user_profile"
-        app:title="@string/toolbar_heading" />
+<com.google.android.material.bottomappbar.BottomAppBar
+    android:id="@+id/bottomAppBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+    app:fabAlignmentMode="end"
+    app:fabAnimationMode="scale" />
 
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_anchor="@id/bottomAppBar"
+    app:borderWidth="0dp"
+    app:tint="@null"
+    />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
