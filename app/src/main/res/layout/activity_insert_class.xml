@@ -14,19 +14,40 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:text="Create a new class"
-        android:textSize="44sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/insert_subject_code"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/input_background"
+        android:ems="10"
+        android:hint="Subject Code"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_TextView" />
+
+    <EditText
         android:id="@+id/insert_subject_name"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/input_background"
         android:ems="10"
         android:hint="Subject Name"
@@ -37,10 +58,10 @@
         android:paddingBottom="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/login_TextView"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/login_TextView"
-        app:layout_constraintTop_toBottomOf="@+id/login_TextView" />
+        app:layout_constraintEnd_toEndOf="@+id/insert_subject_code"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/insert_subject_code"
+        app:layout_constraintTop_toBottomOf="@+id/insert_subject_code" />
 
     <EditText
         android:id="@+id/insert_semester"
@@ -63,6 +84,7 @@
         app:layout_constraintStart_toStartOf="@+id/insert_subject_name"
         app:layout_constraintTop_toBottomOf="@+id/insert_subject_name" />
 
+
     <EditText
         android:id="@+id/insert_department"
         android:layout_width="0dp"
@@ -84,16 +106,16 @@
         app:layout_constraintStart_toStartOf="@+id/insert_semester"
         app:layout_constraintTop_toBottomOf="@+id/insert_semester" />
 
-
-
     <Button
-        android:id="@+id/create_button"
+        android:id="@+id/create_button_new_class"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="72dp"
         android:text="Create"
         app:layout_constraintEnd_toEndOf="@+id/insert_department"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/insert_department"
         app:layout_constraintTop_toBottomOf="@+id/insert_department" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

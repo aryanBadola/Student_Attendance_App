@@ -129,9 +129,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                         ReadWriteUserData writeUserData=new ReadWriteUserData(name,department,number,email);
 
-                        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("Registered Users");
+                        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference();
 
-                        databaseReference.child(mUser.getUid()).setValue(writeUserData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child("Registered Users").child(mUser.getUid()).setValue(writeUserData).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful())

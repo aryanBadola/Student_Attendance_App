@@ -11,10 +11,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.android.myapplication.Adapter.ClassNamesAdapter;
 import com.example.android.myapplication.Model.ClassNamesModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -25,6 +27,7 @@ public class ClassActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
     ArrayList<ClassNamesModel> arrClassNames = new ArrayList<>();
+    FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,7 @@ public class ClassActivity extends AppCompatActivity {
 
         toolbar=(Toolbar) findViewById(R.id.toolbar);
         recyclerView=(RecyclerView) findViewById(R.id.class_names_recycler_view);
+        fab=(FloatingActionButton)findViewById(R.id.floating_action_button_class_names);
 
 
         recyclerView.setHasFixedSize(true);
@@ -53,6 +57,14 @@ public class ClassActivity extends AppCompatActivity {
                     startActivity(new Intent(ClassActivity.this,UserProfileActivity.class));
                 }
                 return true;
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ClassActivity.this, InsertClassActivity.class);
+                startActivity(intent);
             }
         });
     }
